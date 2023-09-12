@@ -1,6 +1,8 @@
 # %%
 
 # ints, floats, strings, booleans
+
+print("Change locally")
 xint = 5
 xfloat = 5.0
 xstring = "5"

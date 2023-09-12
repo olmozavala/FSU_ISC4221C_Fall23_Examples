@@ -3,6 +3,7 @@
 # ints, floats, strings, booleans
 
 print("Change locally")
+print("Change in the cloud")
 xint = 5
 xfloat = 5.0
 xstring = "5"

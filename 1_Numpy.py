@@ -18,7 +18,3 @@ print(y)
 print(f"Third row: {y[2,:]}")
 print(f"Third row (middle elements): {y[2,1:3]}")
 print(f"Second column : {y[:,1]}")
-
-
-
-# %%

@@ -80,3 +80,10 @@ integral = np.mean(myfcircle(rand_values_x,rand_values_y))*(b-a)*2
 
 # Print the result
 print(f'The area of the circle is {integral:.2f} vs {np.pi:.2f}')
+
+# Plot the values of x and y
+plt.scatter(rand_values_x, rand_values_y, marker='.')
+idxs = myfcircle(rand_values_x,rand_values_y)
+plt.scatter(rand_values_x[idxs], rand_values_y[idxs], c='r', marker='.')
+plt.axis('equal')
+plt.show()

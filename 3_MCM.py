@@ -87,3 +87,54 @@ idxs = myfcircle(rand_values_x,rand_values_y)
 plt.scatter(rand_values_x[idxs], rand_values_y[idxs], c='r', marker='.')
 plt.axis('equal')
 plt.show()
+
+# %% -------- Simulate Secretary problem -------
+# 
+# The secretary problem is a problem that demonstrates a scenario involving
+# optimal stopping theory. The problem has been studied extensively in the
+# fields of applied probability, statistics, and decision theory. It is also
+# known as the marriage problem
+# 
+# Define the number of candidates
+N = 10
+num_sim = 1000
+# Generate random values
+# Random permutation
+for cur_sim in range(num_sim):
+    rand_values = np.random.permutation(np.arange(N))
+    # Find the maximum value
+    max_value = np.max(rand_values)
+    # Find the index of the maximum value
+    max_index = np.argmax(rand_values)
+    # Print the result
+    # print(f'The maximum value is {max_value:.2f} and the index is {max_index}')
+    found_max = np.zeros((num_sim,N))
+    for look_phase_n in range(1,N):
+        # Print the result
+        look_max = np.max(rand_values[:look_phase_n])
+        # Get the first index with the value above the maximum
+        first_index = np.where(rand_values[look_phase_n:]>look_max)[0]
+        print(f'Look phase {look_phase_n}: Maximum in LP: {look_max}')
+        if len(first_index) == 0:
+            first_index = N-1 # Last index
+        else:
+            first_index = first_index[0]
+
+
+        # print(f'Found index {first_index} with value {rand_values[first_index]}')
+        if first_index == max_index:
+            found_max[cur_sim,look_phase_n] = 1
+            print(f'Found max: {cur_sim} - {look_phase_n}')
+
+# %% Print the results
+
+fig, axs = plt.subplots(1,2, figsize=(8,4))
+axs[0].plot(np.mean(found_max,axis=0))
+axs[0].set_xlabel('Look phase')
+axs[0].set_ylabel('Probability of finding the maximum')
+axs[0].grid()
+axs[1].plot(np.cumsum(np.mean(found_max,axis=0)))
+axs[1].set_xlabel('Look phase')
+axs[1].set_ylabel('Probability of finding the maximum')
+axs[1].grid()
+plt.show()

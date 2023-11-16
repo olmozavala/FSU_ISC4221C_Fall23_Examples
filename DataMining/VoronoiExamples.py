@@ -27,3 +27,5 @@ ax.triplot(points[:, 0], points[:, 1], tri.simplices, 'b-')
 ax.plot(points[:,0], points[:,1], 'ko')
 
 plt.show()
+
+# %%

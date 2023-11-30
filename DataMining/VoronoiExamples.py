@@ -15,13 +15,13 @@ plt.show()
 vor = Voronoi(points)
 
 # Compute Delaunay triangulation
-tri = Delaunay(points)
+# tri = Delaunay(points)
 
 # Plot
 fig, ax = plt.subplots()
 voronoi_plot_2d(vor, ax=ax, show_vertices=False, line_colors='orange', line_width=2, line_alpha=0.6, point_size=2)
 # Plot Delaunay triangulation on top of Voronoi diagram
-ax.triplot(points[:, 0], points[:, 1], tri.simplices, 'b-')
+# ax.triplot(points[:, 0], points[:, 1], tri.simplices, 'b-')
 
 # Optionally, add the points as black dots
 ax.plot(points[:,0], points[:,1], 'ko')

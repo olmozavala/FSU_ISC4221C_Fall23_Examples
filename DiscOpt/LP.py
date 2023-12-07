@@ -51,3 +51,4 @@ axs.imshow(z, cmap='gray', extent=[*xlims, *ylims], origin='lower')
 plot_line(1, -1, 1, axs, xlims)
 plot_line(-2, -1, -8, axs, xlims)
 plt.show()
+# %%

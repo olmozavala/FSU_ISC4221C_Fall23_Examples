@@ -3,9 +3,9 @@ import sympy as sp
 
 # Define a matrix
 A = sp.Matrix([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+    [1, 0, 1, 0, 1, 0],
+    [0, -1, -1, 0, -1, -1],
+    [1, 2, 2, 1, 1, 1]
 ])
 
 # Compute the Reduced Row Echelon Form
